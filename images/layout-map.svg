@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" font-family="Verdana,Arial,sans-serif" font-size="14">
+<rect width="600" height="300" fill="#fff"/>
+<rect x="20" y="15" width="560" height="40" fill="#111"/><text x="35" y="40" fill="#fff">Navbar - Flexbox (brand left, links right)</text>
+<rect x="20" y="65" width="560" height="70" fill="#9aa5ae"/><text x="35" y="105" fill="#000">Hero - display classes (absolute positioning)</text>
+<g fill="#1a5276"><rect x="20" y="145" width="130" height="70"/><rect x="163" y="145" width="130" height="70"/><rect x="306" y="145" width="130" height="70"/><rect x="450" y="145" width="130" height="70"/></g>
+<text x="35" y="185" fill="#fff">Projects - CSS Grid (auto-fit, minmax)</text>
+<rect x="20" y="225" width="560" height="60" fill="#eef3f7" stroke="#c5d0d9"/><text x="35" y="260">Contact form, map and footer - normal flow</text>
+</svg>
