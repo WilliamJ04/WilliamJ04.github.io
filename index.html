@@ -2,11 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | W3.CSS Architect Analysis</title>
+  <meta name="description" content="IT 3203 class project: an HTML/CSS analysis of the W3.CSS Architect template.">
+  <!-- The single stylesheet used by every page -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is the starting page of my website.</p>
+  <!-- Site header and main menu (identical on every page) -->
+  <header class="site-header">
+    <p class="brand">W3.CSS Architect Analysis</p>
+    <nav aria-label="Main menu"><ul class="menu">
+      <li><a href="index.html" class="current" aria-current="page">Home</a></li>
+      <li><a href="html-structure.html">HTML Structure</a></li>
+      <li><a href="css-architecture.html">CSS Architecture</a></li>
+      <li><a href="responsive-layout.html">Responsive Layout</a></li>
+      <li><a href="key-concepts.html">Key Concepts</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1>HTML/CSS Analysis of the W3.CSS "Architect" Template</h1>
+      <p class="subtitle">An analysis of HTML5 and CSS in a modern informational web page</p>
+    </section>
+    <section>
+      <h2>Abstract</h2>
+      <p>This site analyzes how HTML5 and CSS are used in the W3.CSS "Architect" template from W3Schools, a one-page site for a fictional firm called "BR Architects". The analysis comes from reading the template's source code and the W3.CSS 6 stylesheet, and from comparing both with how the page renders in a browser.</p>
+      <p><strong>Key finding:</strong> the page uses Flexbox for the navigation bar, CSS Grid for the galleries, and absolute-position display classes for the hero, with no JavaScript, no web fonts, and no custom stylesheet. It uses semantic elements well, but it lacks a <code>main</code> element and a <code>lang</code> attribute, and its navigation disappears on phones.</p>
+    </section>
+    <section>
+      <h2>Key Terms</h2>
+      <ul class="terms">
+        <li>Semantic HTML</li><li>Utility classes</li><li>Flexbox</li><li>CSS Grid</li>
+        <li>Specificity</li><li>Responsive design</li><li>Accessibility</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Table of Contents</h2>
+      <ol class="toc">
+        <li><a href="html-structure.html">HTML Structure</a> - semantic elements, headings, and the contact form</li>
+        <li><a href="css-architecture.html">CSS Architecture</a> - utility classes, selectors, and the cascade</li>
+        <li><a href="responsive-layout.html">Responsive Layout</a> - viewport, Grid auto-fit, and the hidden menu</li>
+        <li><a href="key-concepts.html">Key Concepts</a> - six ideas explained</li>
+        <li><a href="references.html">References and Resources</a> - sources and learning links</li>
+        <li><a href="about.html">About</a> - the author and this project</li>
+      </ol>
+    </section>
+  </main>
+  <!-- Footer with required class-project note -->
+  <footer class="site-footer">
+    <p>This website is a class project for IT 3203 (Fall 2026). Class website:
+    <a href="https://ksuweb.github.io/IT3203/">https://ksuweb.github.io/IT3203/</a></p>
+  </footer>
 </body>
 </html>
