@@ -5,15 +5,17 @@
 
 /* SELECTOR TYPE 1: element selectors */
 * { box-sizing: border-box; }
+/* Smooth scrolling for menu links; scroll-padding keeps headings clear of the sticky menu */
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
 body { margin: 0; font-family: Verdana, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: var(--ink); background: #fff; }
-h1 { font-family: "Segoe UI", Arial, sans-serif; color: var(--accent); margin: 1.2rem 0 0.5rem; }
+h1 { font-family: "Segoe UI", Arial, sans-serif; color: var(--accent); margin: 0 0 0.5rem; }
 h2 { font-family: "Segoe UI", Arial, sans-serif; border-bottom: 2px solid var(--line); padding-bottom: 0.25rem; margin-top: 1.5rem; }
-main { max-width: 960px; margin: 0 auto; padding: 1rem 1.5rem 2rem; }
+h3 { font-family: "Segoe UI", Arial, sans-serif; color: var(--accent); margin-top: 1.25rem; }
 img { max-width: 100%; height: auto; border: 1px solid var(--line); }
-pre { background: var(--light); border-left: 4px solid var(--accent); padding: 0.75rem 1rem; overflow-x: auto; }
+pre { background: #fff; border-left: 4px solid var(--accent); padding: 0.75rem 1rem; overflow-x: auto; }
 code { background: var(--light); padding: 0 0.25rem; }
-pre code { padding: 0; }
-table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; background: #fff; }
 caption { text-align: left; font-weight: bold; padding-bottom: 0.4rem; }
 th, td { border: 1px solid var(--line); padding: 0.5rem 0.75rem; text-align: left; }
 th { background: var(--accent); color: #fff; }
@@ -24,16 +26,21 @@ a { color: var(--accent); }
 a:hover { color: #fff; background: var(--accent); text-decoration: none; }
 
 /* SELECTOR TYPE 2: class selectors */
-/* LAYOUT 1 (FLEXBOX): header with brand on the left and menu on the right */
-.site-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; background: #111; padding: 0.75rem 1.5rem; }
+/* LAYOUT 1 (FLEXBOX): sticky header with brand on the left and menu on the right */
+.site-header { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; background: #111; padding: 0.75rem 1.5rem; }
 .brand { margin: 0; color: #fff; font-weight: bold; letter-spacing: 3px; }
 .menu { display: flex; flex-wrap: wrap; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
 .menu a { display: block; color: #fff; padding: 0.4rem 0.8rem; border: 1px solid transparent; text-decoration: none; }
 .menu a:hover { background: #fff; color: #111; border-color: #fff; }
-.menu a.current { border-color: #fff; }
-.hero { background: var(--light); border: 1px solid var(--line); padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
-.hero h1 { margin-top: 0; }
-.subtitle { font-style: italic; margin: 0; }
+
+/* Each "page" is a full-screen panel; alternating backgrounds mark where one ends */
+.panel { min-height: 100vh; padding: 2.5rem max(1.5rem, calc((100% - 960px) / 2)); border-bottom: 1px solid var(--line); }
+.panel.alt { background: var(--light); }
+.hero { text-align: center; }
+.hero .toc, .hero .terms { text-align: left; }
+.hero .terms { justify-content: center; }
+.section-title { font-size: 1.8rem; color: var(--accent); margin-top: 0; }
+.subtitle { font-style: italic; margin: 0 0 1rem; }
 .terms { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
 .terms li { background: var(--accent); color: #fff; padding: 0.25rem 0.75rem; border-radius: 4px; }
 .toc li { margin-bottom: 0.4rem; }
@@ -41,10 +48,10 @@ a:hover { color: #fff; background: var(--accent); text-decoration: none; }
 .site-footer a { color: #fff; }
 .site-footer a:hover { color: #111; background: #fff; }
 
-/* LAYOUT 2 (CSS GRID): key-concept cards, same auto-fit idea analyzed on the site */
+/* LAYOUT 2 (CSS GRID): key-concept cards */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-.cards h2 { border-bottom: none; margin-top: 0; font-size: 1.15rem; }
+.cards h3 { margin-top: 0; }
 
 /* SELECTOR TYPE 3: descendant selector with a pseudo-class state */
-.cards article { background: var(--light); border: 1px solid var(--line); padding: 1rem; }
+.cards article { background: #fff; border: 1px solid var(--line); padding: 1rem; }
 .cards article:hover { border-color: var(--accent); }
