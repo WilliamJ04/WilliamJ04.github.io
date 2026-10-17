@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Structure | W3.CSS Architect Analysis</title>
+  <meta name="description" content="IT 3203 class project: an HTML/CSS analysis of the W3.CSS Architect template.">
+  <!-- The single stylesheet used by every page -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Site header and main menu (identical on every page) -->
+  <header class="site-header">
+    <p class="brand">W3.CSS Architect Analysis</p>
+    <nav aria-label="Main menu"><ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html-structure.html" class="current" aria-current="page">HTML Structure</a></li>
+      <li><a href="css-architecture.html">CSS Architecture</a></li>
+      <li><a href="responsive-layout.html">Responsive Layout</a></li>
+      <li><a href="key-concepts.html">Key Concepts</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul></nav>
+  </header>
+  <main>
+    <h1>Aspect 1: HTML5 Structure</h1>
+    <section>
+      <h2>The Document Skeleton</h2>
+      <p>The head of the template declares UTF-8 and a viewport meta tag, and links one external stylesheet, <code>w3.css</code> version 6. The source shown in the Try-it editor starts with the <code>html</code> tag, so it has no DOCTYPE, no <code>lang</code> attribute, and a generic title ("W3.CSS Template").</p>
+    </section>
+    <section>
+      <h2>Semantic Elements the Template Uses</h2>
+      <table>
+        <caption>Semantic elements in the template and my assessment</caption>
+        <thead><tr><th>Element</th><th>Where it appears</th><th>Assessment</th></tr></thead>
+        <tbody>
+          <tr><td><code>header#home</code></td><td>Hero photo with the h1 "BR Architects"</td><td>Correct: introductory banner and link target</td></tr>
+          <tr><td><code>nav</code></td><td>Projects, About, Contact links</td><td>Correct, but the brand link sits outside it</td></tr>
+          <tr><td><code>section</code> (x3)</td><td>Projects, About, Contact</td><td>Correct: each opens with an h2 and has an id</td></tr>
+          <tr><td><code>form</code></td><td>Contact form</td><td>Valid, but fields have no labels</td></tr>
+          <tr><td><code>footer</code></td><td>"Powered by w3.css" credit</td><td>Correct</td></tr>
+          <tr><td><code>main</code></td><td>Not present</td><td>Missing landmark</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Headings and the Contact Form</h2>
+      <ul>
+        <li>The page has one h1, three h2 headings, and four h3 headings (team members); no level is skipped.</li>
+        <li>All four form fields are <code>required</code>, so the browser validates the form without JavaScript.</li>
+        <li>The inputs use placeholders instead of <code>label</code> elements, and the comment field is a single-line input instead of a <code>textarea</code>.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Proposed Improvement</h2>
+      <pre><code>&lt;label for="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" type="email" name="Email" autocomplete="email" required&gt;</code></pre>
+      <p>Lesson: a utility-class framework controls appearance only; meaning is still the author's job.</p>
+    </section>
+  </main>
+  <!-- Footer with required class-project note -->
+  <footer class="site-footer">
+    <p>This website is a class project for IT 3203 (Fall 2026). Class website:
+    <a href="https://ksuweb.github.io/IT3203/">https://ksuweb.github.io/IT3203/</a></p>
+  </footer>
+</body>
+</html>
