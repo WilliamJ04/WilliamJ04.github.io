@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Architecture | W3.CSS Architect Analysis</title>
+  <meta name="description" content="IT 3203 class project: an HTML/CSS analysis of the W3.CSS Architect template.">
+  <!-- The single stylesheet used by every page -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Site header and main menu (identical on every page) -->
+  <header class="site-header">
+    <p class="brand">W3.CSS Architect Analysis</p>
+    <nav aria-label="Main menu"><ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html-structure.html">HTML Structure</a></li>
+      <li><a href="css-architecture.html" class="current" aria-current="page">CSS Architecture</a></li>
+      <li><a href="responsive-layout.html">Responsive Layout</a></li>
+      <li><a href="key-concepts.html">Key Concepts</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul></nav>
+  </header>
+  <main>
+    <h1>Aspect 2: CSS Architecture</h1>
+    <section>
+      <h2>A Utility-Class Model</h2>
+      <p>The template has no style block and no stylesheet of its own. Appearance comes from W3.CSS classes plus 14 inline style attributes. For example, the navigation bar carries six classes, and each one contributes a declaration or two.</p>
+      <table>
+        <caption>Decoding the navigation bar classes (w3.css 6)</caption>
+        <thead><tr><th>Class</th><th>Declaration</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td><code>w3-flex</code></td><td>display:flex</td><td>Brand and links sit in one row</td></tr>
+          <tr><td><code>w3-top</code></td><td>position:fixed; top:0</td><td>Bar stays at the top</td></tr>
+          <tr><td><code>w3-wide</code></td><td>letter-spacing:4px</td><td>Widely spaced letters</td></tr>
+          <tr><td><code>w3-padding</code></td><td>padding:8px 16px</td><td>Space inside the bar</td></tr>
+          <tr><td><code>w3-card</code></td><td>box-shadow</td><td>Soft shadow under the bar</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Selector Types in the Framework</h2>
+      <ul>
+        <li><strong>Element:</strong> <code>h1{font-size:36px}</code></li>
+        <li><strong>Class:</strong> carries nearly everything else</li>
+        <li><strong>Universal:</strong> <code>*,*:before,*:after{box-sizing:inherit}</code></li>
+        <li><strong>Pseudo-class and descendant:</strong> <code>.w3-striped tbody tr:nth-child(even)</code></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Cascade and Critique</h2>
+      <p>W3.CSS 6 marks many utilities <code>!important</code>, so a utility wins over ordinary rules. That is why an inline style cannot beat <code>.w3-padding</code> but can beat <code>.w3-content</code>. Several inline styles also duplicate built-in classes, and I recommend replacing them.</p>
+    </section>
+  </main>
+  <!-- Footer with required class-project note -->
+  <footer class="site-footer">
+    <p>This website is a class project for IT 3203 (Fall 2026). Class website:
+    <a href="https://ksuweb.github.io/IT3203/">https://ksuweb.github.io/IT3203/</a></p>
+  </footer>
+</body>
+</html>
