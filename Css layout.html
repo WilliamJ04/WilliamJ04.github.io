@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS & Layout | W3.CSS Architect Analysis</title>
+  <meta name="description" content="IT 3203 class project: an HTML/CSS analysis of the W3.CSS Architect template.">
+  <!-- The single stylesheet for the whole site -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Main menu: identical on every page; aria-current marks the open page -->
+  <header class="site-header">
+    <p class="brand">W3.CSS Architect Analysis</p>
+    <nav aria-label="Main menu"><ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html-structure.html">HTML Structure</a></li>
+      <li><a href="css-layout.html" aria-current="page">CSS &amp; Layout</a></li>
+      <li><a href="key-concepts.html">Key Concepts</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul></nav>
+  </header>
+  <main class="panel">
+    <h1>Topic 2: CSS Architecture and Responsive Layout</h1>
+    <h2>A Utility-Class Model</h2>
+    <p>The template has no style block and no stylesheet of its own. Appearance comes from W3.CSS classes plus 14 inline style attributes. The navigation bar alone carries six classes.</p>
+    <table>
+      <caption>Decoding the navigation bar classes (w3.css 6)</caption>
+      <thead><tr><th>Class</th><th>Declaration</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td><code>w3-flex</code></td><td>display:flex</td><td>Brand and links sit in one row</td></tr>
+        <tr><td><code>w3-top</code></td><td>position:fixed; top:0</td><td>Bar stays at the top</td></tr>
+        <tr><td><code>w3-wide</code></td><td>letter-spacing:4px</td><td>Widely spaced letters</td></tr>
+        <tr><td><code>w3-padding</code></td><td>padding:8px 16px</td><td>Space inside the bar</td></tr>
+        <tr><td><code>w3-card</code></td><td>box-shadow</td><td>Soft shadow under the bar</td></tr>
+      </tbody>
+    </table>
+    <h2>Selectors and the Cascade</h2>
+    <ul>
+      <li><strong>Element:</strong> <code>h1{font-size:36px}</code></li>
+      <li><strong>Universal:</strong> <code>*,*:before,*:after{box-sizing:inherit}</code></li>
+      <li><strong>Class, descendant, and pseudo-class:</strong> <code>.w3-striped tbody tr:nth-child(even)</code></li>
+    </ul>
+    <p>W3.CSS 6 marks many utilities <code>!important</code>, so an inline style cannot beat <code>.w3-padding</code> but can beat <code>.w3-content</code>.</p>
+    <h2>Layout Map</h2>
+    <img src="images/layout-map.svg" alt="Diagram of the template: a flex navigation bar on top, a hero, a grid of four project cards, and a contact form" width="600" height="300">
+    <h2>The Grid: auto-fit with minmax</h2>
+<pre><code>grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 16px;</code></pre>
+    <p>The browser fits as many 300 px columns as it can, so no media queries are needed.</p>
+    <table>
+      <caption>Predicted columns for the four project cards (my calculation)</caption>
+      <thead><tr><th>Browser width</th><th>Columns</th></tr></thead>
+      <tbody>
+        <tr><td>Below about 648 px</td><td>1</td></tr>
+        <tr><td>About 648 to 963 px</td><td>2</td></tr>
+        <tr><td>About 964 to 1279 px</td><td>3</td></tr>
+        <tr><td>1280 px and wider</td><td>4</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Weakness:</strong> the <code>w3-hide-small</code> class hides the whole menu at 600 px and below, with no replacement. A <code>details</code> and <code>summary</code> menu would fix this without JavaScript. (This site avoids the problem by letting its menu wrap.)</p>
+  </main>
+  <!-- Required class-project note -->
+  <footer class="site-footer">
+    <p>This website is a class project for IT 3203 (Fall 2026). Class website:
+    <a href="https://ksuweb.github.io/IT3203/">https://ksuweb.github.io/IT3203/</a></p>
+  </footer>
+</body>
+</html>
